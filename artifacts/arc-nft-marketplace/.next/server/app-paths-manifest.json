@@ -1,6 +1,0 @@
-{
-  "/page": "app/page.js",
-  "/explore/page": "app/explore/page.js",
-  "/collections/page": "app/collections/page.js",
-  "/nft/[id]/page": "app/nft/[id]/page.js"
-}
