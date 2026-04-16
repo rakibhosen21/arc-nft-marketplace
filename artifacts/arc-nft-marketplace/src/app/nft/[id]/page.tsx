@@ -151,14 +151,14 @@ function RealListingDetail({ listingId }: { listingId: bigint }) {
                 Price
               </p>
               <p className="text-4xl font-black text-white mb-5">
-                {formatUSDC(listing.pricePerToken)}{' '}
+                {formatUSDC((listing as any).pricePerToken)}{' '}
                 <span className="text-2xl" style={{ color: '#7c3aed' }}>
                   USDC
                 </span>
               </p>
               <BuyButton
                 listingId={listing.id}
-                pricePerToken={listing.pricePerToken}
+                pricePerToken={(listing as any).pricePerToken}
               />
             </>
           ) : (
