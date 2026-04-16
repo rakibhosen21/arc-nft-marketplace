@@ -13,9 +13,12 @@
     "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
   },
 
+  "dependencies": {
+    "pino-pretty": "^10.0.0"
+  },
+
   "devDependencies": {
     "typescript": "~5.9.2",
     "prettier": "^3.8.1"
   }
 }
- 
