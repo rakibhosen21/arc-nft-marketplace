@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, TrendingUp, Users, Layers, ChevronRight } from 'lucide-react';
 import { nfts, collections } from '@/lib/data';
-import NFTCard from '@/components/NFTCard';
+import FeaturedListings from '@/components/FeaturedListings';
 
 const stats = [
   { label: 'Total Volume', value: '48,291 ETH', icon: TrendingUp },
@@ -11,7 +11,6 @@ const stats = [
 ];
 
 export default function HomePage() {
-  const featured = nfts.slice(0, 4);
   const topCollections = collections.slice(0, 4);
 
   return (
@@ -140,27 +139,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured NFTs */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="flex items-center justify-between mb-10">
-          <div>
-            <h2 className="text-3xl font-bold text-white mb-2">Featured NFTs</h2>
-            <p style={{ color: 'rgba(255,255,255,0.4)' }}>Handpicked by our curators</p>
-          </div>
-          <Link
-            href="/explore"
-            className="hidden sm:inline-flex items-center gap-1 text-sm font-semibold"
-            style={{ color: '#a78bfa' }}
-          >
-            View All <ChevronRight size={16} />
-          </Link>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {featured.map((nft) => (
-            <NFTCard key={nft.id} nft={nft} />
-          ))}
-        </div>
-      </section>
+      {/* Featured Listings — live from blockchain */}
+      <FeaturedListings />
 
       {/* Top Collections */}
       <section style={{ background: '#08081a' }}>

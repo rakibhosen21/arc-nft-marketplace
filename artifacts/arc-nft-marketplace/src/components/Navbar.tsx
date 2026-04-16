@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { Menu, X, Zap } from 'lucide-react';
+import { ConnectButton } from "thirdweb/react";
+import { client, arcTestnet } from "@/lib/thirdweb";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -41,29 +43,41 @@ export default function Navbar() {
                 href={link.href}
                 className="px-4 py-2 rounded-lg text-sm font-medium transition-colors"
                 style={{ color: 'rgba(255,255,255,0.65)' }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.color = '#fff';
-                  (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(255,255,255,0.06)';
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.color = 'rgba(255,255,255,0.65)';
-                  (e.currentTarget as HTMLAnchorElement).style.background = 'transparent';
-                }}
               >
                 {link.label}
               </Link>
             ))}
           </div>
 
-          {/* CTA + Mobile toggle */}
+          {/* ConnectButton + Mobile toggle */}
           <div className="flex items-center gap-3">
-            <Link
-              href="/explore"
-              className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold text-white transition-all"
-              style={{ background: 'linear-gradient(135deg, #7c3aed, #06b6d4)' }}
-            >
-              Connect Wallet
-            </Link>
+            <ConnectButton
+              client={client}
+              chain={arcTestnet}
+              connectButton={{
+                label: "Connect Wallet",
+                style: {
+                  background: "linear-gradient(135deg, #7c3aed, #06b6d4)",
+                  color: "#fff",
+                  fontWeight: "600",
+                  fontSize: "14px",
+                  borderRadius: "12px",
+                  padding: "8px 16px",
+                  border: "none",
+                  cursor: "pointer",
+                },
+              }}
+              detailsButton={{
+                style: {
+                  background: "rgba(124,58,237,0.15)",
+                  border: "1px solid rgba(124,58,237,0.35)",
+                  borderRadius: "12px",
+                  color: "#a78bfa",
+                  fontWeight: "600",
+                  fontSize: "14px",
+                },
+              }}
+            />
             <button
               className="md:hidden p-2 rounded-lg text-white"
               style={{ background: 'rgba(255,255,255,0.06)' }}
@@ -97,14 +111,6 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/explore"
-            className="block px-4 py-3 rounded-lg text-sm font-semibold text-white text-center"
-            style={{ background: 'linear-gradient(135deg, #7c3aed, #06b6d4)' }}
-            onClick={() => setOpen(false)}
-          >
-            Connect Wallet
-          </Link>
         </div>
       )}
     </nav>
