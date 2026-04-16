@@ -55,7 +55,7 @@ function RealListingDetail({ listingId }: { listingId: bigint }) {
   const name = metadata?.name ?? `Token #${listing.tokenId}`;
   const description = (metadata?.description as string) ?? 'No description available.';
   const image = resolveIpfsUrl(metadata?.image ?? '');
-  const isActive = listing.status === 1; // Active status
+  
 const isActive = String(listing.status) === "CREATED"
   return (
     <div className="grid lg:grid-cols-2 gap-12">
