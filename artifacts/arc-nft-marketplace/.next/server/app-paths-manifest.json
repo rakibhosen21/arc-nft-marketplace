@@ -1,0 +1,7 @@
+{
+  "/nft/[id]/page": "app/nft/[id]/page.js",
+  "/page": "app/page.js",
+  "/explore/page": "app/explore/page.js",
+  "/collections/page": "app/collections/page.js",
+  "/profile/page": "app/profile/page.js"
+}

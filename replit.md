@@ -16,6 +16,10 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - **API codegen**: Orval (from OpenAPI spec)
 - **Build**: esbuild (CJS bundle)
 
+## Artifacts
+
+- **arc-nft-marketplace** — Next.js 15 NFT marketplace (port 3000). Pages: `/`, `/explore`, `/collections`, `/nft/[id]`, `/profile`.
+
 ## Key Commands
 
 - `pnpm run typecheck` — full typecheck across all packages
