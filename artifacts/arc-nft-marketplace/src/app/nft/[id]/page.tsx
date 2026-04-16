@@ -167,7 +167,7 @@ function RealListingDetail({ listingId }: { listingId: bigint }) {
               <div>
                 <p className="text-sm font-semibold text-white">Not Active</p>
                 <p className="text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>
-                  Last price: {formatUSDC(listing.pricePerToken)} USDC
+                  Last price: {formatUSDC((listing as any).pricePerToken)} USDC
                 </p>
               </div>
             </div>
